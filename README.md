@@ -1,8 +1,12 @@
 # WorkoutApp
 
-Download node if you do not have it already, can check using `node -v`
+### Download node if you do not have it already, can check using `node -v`
 
 https://nodejs.org/en/download/
+
+### Mongoose Documentation
+
+https://mongoosejs.com/docs/guides.html
 
 ## FrontEnd Readme
 
