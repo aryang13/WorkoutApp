@@ -1,5 +1,9 @@
 # WorkoutApp
 
+Download node if you do not have it already, can check using `node -v`
+
+https://nodejs.org/en/download/
+
 ## FrontEnd Readme
 
 See [frontend readme.](frontend/README.md)
