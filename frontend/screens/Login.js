@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Button, View, Text, TextInput, Alert} from 'react-native';
-import SignUpPage from './SignUpPage';
 
 export default function Login({ navigation }) {
 

@@ -1,7 +1,5 @@
-import { NavigationContainer, PrivateValueStore } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
-import Login from './Login';
 
 export default function SignUpPage({ navigation }) {
     const backPressHandler = () => {
