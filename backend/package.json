@@ -14,7 +14,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
-    "mongoose": "^6.2.9"
+    "js-sha3": "^0.8.0",
+    "mongodb": "^4.4.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
