@@ -1,11 +1,11 @@
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-import Login from '../screens/Login';
+import LoginPage from '../screens/LoginPage';
 import SignUpPage from '../screens/SignUpPage';
 
 const screens = {
-    Login: {
-        screen: Login,
+    LoginPage: {
+        screen: LoginPage,
         navigationOptions: {
             headerShown: false,
           }
@@ -19,6 +19,6 @@ const screens = {
     }
 }
 
-const LogInScreen = createStackNavigator(screens);
+const LoginScreen = createStackNavigator(screens);
 
-export default createAppContainer(LogInScreen);
+export default createAppContainer(LoginScreen);

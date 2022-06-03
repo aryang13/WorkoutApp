@@ -1,8 +1,8 @@
 import React from 'react';
-import Navigator from './stacks/LogInNavigation';
+import LoginNavigator from './stacks/LoginNavigator';
 
 export default function App() {
   return (
-    <Navigator />
+    <LoginNavigator />
   );
 }
