@@ -1,103 +1,63 @@
-import { NavigationContainer, PrivateValueStore } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
-import Login from './Login';
+import { Text, TextInput, View, Button, Alert } from 'react-native';
+import LoginStyleSheet from '../styles/LoginStyleSheet';
 
 export default function SignUpPage({ navigation }) {
-    const backPressHandler = () => {
-        navigation.navigate('Login');
+    const pressHandler = () => {
+        navigation.navigate('LoginPage')
     }
     
     return (
-        <View style={styles.container}>
-            <View style={styles.margin}>
-                <Text style={styles.setFontSizeOne}>Sign Up</Text>
+        <View style={LoginStyleSheet.container}>
+            <View style={LoginStyleSheet.margin}>
+                <Text style={LoginStyleSheet.setFontSizeOne}>Sign Up</Text>
             </View>
-            <View style={styles.margin}>
+            <View style={LoginStyleSheet.margin}>
                 <TextInput
-                    style={styles.textBox}
+                    style={LoginStyleSheet.textBox}
                     placeholder='Name'
                 />
             </View>
-            <View style={styles.margin}>
+            <View style={LoginStyleSheet.margin}>
                 <TextInput
-                    style={styles.textBox}
+                    style={LoginStyleSheet.textBox}
                     placeholder='Email'
                 />
             </View>
-            <View style={styles.margin}>
+            <View style={LoginStyleSheet.margin}>
                 <TextInput
-                    style={styles.textBox}
+                    style={LoginStyleSheet.textBox}
                     placeholder='Username'
                 />
             </View>
-            <View style={styles.passwordMargin}>
+            <View style={LoginStyleSheet.passwordMargin}>
                 <TextInput
                     placeholder='Password'
-                    style={styles.textBox}
+                    style={LoginStyleSheet.textBox}
                     secureTextEntry={true}
                 />
             </View>
-            <View style={styles.margin}>
-                <Text style={styles.setFontSizeTwo}>Password should be minimum 8 characters in length</Text>
-                <Text style={styles.setFontSizeTwo}>Password should contain at least 1 number</Text>
+            <View style={LoginStyleSheet.margin}>
+                <Text style={LoginStyleSheet.setFontSizeTwo}>Password should be minimum 8 characters in length</Text>
+                <Text style={LoginStyleSheet.setFontSizeTwo}>Password should contain at least 1 number</Text>
             </View>
             <TextInput
                 placeholder='Re-enter Password'
-                style={styles.textBox}
+                style={LoginStyleSheet.textBox}
                 secureTextEntry={true}
             />
-            <View style={styles.buttonMargin}>
+            <View style={LoginStyleSheet.buttonMargin}>
                 <Button // add box to button with colour and appropriate amount of padding 
                     title="Create Account"
                     onPress={() => Alert.alert("Make this send an API Request... this is pending")}
                 />
             </View>
-            <View style={styles.backButtonContainer}>
+            <View style={LoginStyleSheet.backButtonContainer}>
                 <Button
                     title="Back"
-                    onPress={backPressHandler}
+                    onPress={pressHandler}
                 />
             </View>
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'white',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    backButtonContainer: {
-        ...StyleSheet.absoluteFillObject,
-        top: 65,
-        right: 350
-    },
-    setFontSizeOne: {
-        fontSize: 30 // "Sign Up"'s font size
-    },
-    setFontSizeTwo: {
-        fontSize: 10 // Password requirements' font size
-    },
-    textBox: {
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 1,
-        width: 200,
-        paddingHorizontal: 10
-    },
-    margin: {
-        backgroundColor: 'white',
-        marginBottom: 25
-    },
-    passwordMargin: {
-        backgroundColor: 'white',
-        marginBottom: 1
-    },
-    buttonMargin: {
-        backgroundColor: 'white',
-        marginTop: 50
-    },
-});

@@ -1,11 +1,8 @@
 import React from 'react';
-import Login from './screens/Login';
-import SignUpPage from './screens/SignUpPage';
-import Navigator from './routes/LogInNavigation';
-
+import LoginNavigator from './stacks/LoginNavigator';
 
 export default function App() {
   return (
-    <Navigator />
+    <LoginNavigator />
   );
 }
