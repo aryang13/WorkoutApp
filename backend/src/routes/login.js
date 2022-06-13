@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     try {
         const db = mongoUtil.getLoginDb();
-        const { username, password } = req.body;
+        const { username, password } = req.query;
         // hash username and password
         const hashedId = createHash(username, password);
         // retrieve all the collections 
