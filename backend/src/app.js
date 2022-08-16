@@ -12,7 +12,6 @@ app.use(express.json())
 mongoUtil.connectToDatabase( function( err, client ) {
   if (err) console.log(err);
   else console.log("Connected to Database");
-  const lols;
 });
 
 const port = process.env.PORT || 8080;
