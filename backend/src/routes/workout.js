@@ -59,7 +59,7 @@ workoutRouter.get('/get-exercise', async (req, res) => {
         const response = await collection.findOne(query);
         // if the exercise doesn't exist, throw an error 
         if (response == null) {
-            res.status(404).send("Exercise does not exist");
+            res.status(400).send("Exercise does not exist");
             return;
         }
         // send the exercise as a response
@@ -89,7 +89,7 @@ workoutRouter.get('/get-all', async (req, res) => {
         // if the exercise doesn't exist, throw an error 
         if (response == null) {
             // TODO get this functionality working for a new user 
-            res.status(404).send("No exercises found");
+            res.status(400).send("No exercises found");
             return;
         }
         // send the exercise as a response
@@ -134,7 +134,7 @@ workoutRouter.put('/update-exercise', async (req, res) => {
         // if the exercise doesn't exist, throw an error 
         if (response == null) {
             // TODO get this functionality working for a new user 
-            res.status(404).send("No exercises found");
+            res.status(400).send("No exercises found");
             return;
         }
         // send the exercise as a response
