@@ -28,4 +28,3 @@ module.exports = {
         return _db.db("users");
     },
 }
-
