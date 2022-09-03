@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoUtil from '../db/mongoUtil';
-import { createLoginHash } from '../utils/hash';
+import { createHash } from '../utils/hash'
 
 export const loginRouter = express.Router();
 
