@@ -28,7 +28,7 @@ export default function LoginPage({ navigation }) {
                     onChangeText={(val) => setUsername(val)}
                 />
             </View>
-            
+
             <View style={LoginStyleSheet.margin}>
                 <TextInput
                     placeholder='Password'
@@ -37,6 +37,7 @@ export default function LoginPage({ navigation }) {
                     onChangeText={(val) => setPassword(val)}
                 />
             </View>
+            
             <View styles={LoginStyleSheet.margin}>
                 <Button
                     title='Login'
