@@ -6,13 +6,11 @@ export const workoutRouter = express.Router();
 // Add an exercise
 workoutRouter.post('/add-exercise', async (req, res) => {
     try {
-        // get the uuid from the headers 
         const uuid = req.headers.uuid;
-        // get the database with the mongo client 
         const usersDb = mongoUtil.getUsersDb();
         // retrieve all collections
         const allCollections = await usersDb.collections();
-        // go through collections and check if it exists 
+        // check to see if the collection with the user's name exists 
         const userExists = allCollections.find(collection => collection.collectionName === uuid);
         if (!userExists) {
             // creates collection with uuid
@@ -84,8 +82,8 @@ workoutRouter.get('/get-all', async (req, res) => {
         }
         // store the collection in a variable 
         const collection = usersDb.collection(uuid);
-        // query for the exercise 
-        const response = await collection.find({}).toArray();
+        // query for the exercises 
+        const response = await collection.find().toArray();
         // if the exercise doesn't exist, throw an error 
         if (response == null) {
             // TODO get this functionality working for a new user 
