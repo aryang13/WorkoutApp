@@ -10,7 +10,7 @@ export default function LoginPage({ navigation }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    function validateUserInfo(username, password) {
+    function validateUserInfo() {
         console.log(username);
         console.log(password);
     }
@@ -23,8 +23,8 @@ export default function LoginPage({ navigation }) {
 
             <View style={LoginStyleSheet.margin}>
                 <TextInput
+                     placeholder='Username'
                     style={LoginStyleSheet.textBox}
-                    placeholder='Username'
                     onChangeText={(val) => setUsername(val)}
                 />
             </View>
@@ -41,11 +41,11 @@ export default function LoginPage({ navigation }) {
             <View styles={LoginStyleSheet.margin}>
                 <Button
                     title='Login'
-                    onPress={validateUserInfo(username, password)}
+                    onPress={() => validateUserInfo()}
                 />
                 <Button
                     title='Sign Up'
-                    onPress={pressHandler}
+                    onPress={() => pressHandler()}
                 />
             </View>
         </View>
