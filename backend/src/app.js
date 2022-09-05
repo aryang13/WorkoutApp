@@ -1,7 +1,8 @@
 import express from 'express';
 import * as dotenv from "dotenv";
 import cors from 'cors';
-import loginRouter from './routes/login';
+import { workoutRouter } from './routes/workout';
+import { loginRouter } from './routes/login';
 import mongoUtil from './db/mongoUtil';
 
 dotenv.config();
@@ -20,6 +21,7 @@ app.listen(port, () =>
 );
 
 app.use('/login', loginRouter);
+app.use('/workout', workoutRouter);
 
 app.get('/ping', (req, res) => {
   console.log("pong");

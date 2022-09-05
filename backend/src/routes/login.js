@@ -1,10 +1,10 @@
 import express from 'express';
 import mongoUtil from '../db/mongoUtil';
-import { createHash } from '../utils/hash';
+import { createHash } from '../utils/hash'
 
-const router = express.Router();
+export const loginRouter = express.Router();
 
-router.get('/', async (req, res) => {
+loginRouter.get('/sign-in', async (req, res) => {
     try {
         const db = mongoUtil.getLoginDb();
         const { username, password } = req.query;
@@ -15,15 +15,16 @@ router.get('/', async (req, res) => {
         // go through collections and check if it exists
         const userExists = allCollections.find(collection => collection.collectionName === hashedId);
         if (!userExists) {
-            throw new Error("Username or Password is incorrect");
+            res.status(400).send("Username or Password is incorrect");
+            return;
         }
         res.send("User exists and is logged in successfully");
     } catch (err) {
-        res.status(404).send(err);
+        res.status(500).send(`Internal Server Error: ${err}`);
     }
 });
 
-router.post('/', async (req, res) => {
+loginRouter.post('/create-account', async (req, res) => {
     try {
         const loginDb = mongoUtil.getLoginDb();
         const { username, password } = req.body;
@@ -51,5 +52,3 @@ router.post('/', async (req, res) => {
         res.status(500).send(`Internal Server Error: ${err}`);
     }
 });
-
-export default router;
