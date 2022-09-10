@@ -10,9 +10,12 @@ export default function LoginPage({ navigation }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    function validateUserInfo() {
+    async function validateUserInfo() {
         console.log(username);
         console.log(password);
+
+        const response = await fetch(`http://localhost:8080/login/sign-in/?username=${username}?password=${password}`);
+        if 
     }
 
     return (
