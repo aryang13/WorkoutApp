@@ -15,7 +15,13 @@ export default function LoginPage({ navigation }) {
         console.log(password);
 
         const response = await fetch(`http://localhost:8080/login/sign-in/?username=${username}?password=${password}`);
-        if 
+        if (response.ok) {
+            () => Alert.alert('logged in');
+        }
+
+        else {
+            () => Alert.alert('Incorrect username or password')
+        }
     }
 
     return (
