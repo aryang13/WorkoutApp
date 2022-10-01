@@ -14,13 +14,16 @@ export default function LoginPage({ navigation }) {
         console.log(username);
         console.log(password);
 
-        const response = await fetch(`http://localhost:8080/login/sign-in/?username=${username}?password=${password}`);
+        const response = await fetch(`http://206.12.142.61:8080/login/sign-in/?username=${username}&password=${password}`);
+        
+        console.log(response.status);
+
         if (response.ok) {
-            () => Alert.alert('logged in');
+            Alert.alert("Logged in");
         }
 
         else {
-            () => Alert.alert('Incorrect username or password')
+            Alert.alert("get fucked");;
         }
     }
 
