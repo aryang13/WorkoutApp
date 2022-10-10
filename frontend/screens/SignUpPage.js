@@ -1,10 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Text, TextInput, View, Button, Alert } from 'react-native';
 import LoginStyleSheet from '../styles/LoginStyleSheet';
 
 export default function SignUpPage({ navigation }) {
     const pressHandler = () => {
         navigation.navigate('LoginPage')
+    }
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const userData = {username, password, email, name};
+
+    async function saveUserInfo() {
+        const response = await fetch(`http://206.12.136.100:8080/login/create-account`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        });
+
+        console.log(response);
+            
     }
     
     return (
@@ -49,7 +69,8 @@ export default function SignUpPage({ navigation }) {
             <View style={LoginStyleSheet.buttonMargin}>
                 <Button // add box to button with colour and appropriate amount of padding 
                     title="Create Account"
-                    onPress={() => Alert.alert("Make this send an API Request... this is pending")}
+                    onPress={() => saveUserInfo()}
+                       // Alert.alert("Make this send an API Request... this is pending")}
                 />
             </View>
             <View style={LoginStyleSheet.backButtonContainer}>

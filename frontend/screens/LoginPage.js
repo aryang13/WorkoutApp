@@ -14,7 +14,7 @@ export default function LoginPage({ navigation }) {
         console.log(username);
         console.log(password);
 
-        const response = await fetch(`http://206.12.142.61:8080/login/sign-in/?username=${username}&password=${password}`);
+        const response = await fetch(`http://206.12.136.100:8080/login/sign-in/?username=${username}&password=${password}`);
         
         console.log(response.status);
 
