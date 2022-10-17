@@ -12,18 +12,31 @@ export default function SignUpPage({ navigation }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const userData = {username, password, email, name};
+    const userData = {username: username, password: password, email: email, name: name};
 
     async function saveUserInfo() {
-        const response = await fetch(`http://206.12.136.100:8080/login/create-account`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(userData)
-        });
+        // POST CALL
 
-        console.log(response);
+        // console.log(username);
+        // console.log(password);
+        // console.log(email);
+        // console.log(name);
+
+
+        const response = await fetch(`http://192.168.0.228:8080/login/create-account/`, {
+                method: 'POST',
+                body: userData
+            });
+
+            console.log(response.ok);
+
+            if (response.ok) {
+                Alert.alert("Account Created");
+            }
+    
+            else {
+                Alert.alert("Account Already Exists");;
+            }
             
     }
     
@@ -36,18 +49,21 @@ export default function SignUpPage({ navigation }) {
                 <TextInput
                     style={LoginStyleSheet.textBox}
                     placeholder='Name'
+                    onChangeText={(val) => setName(val)}
                 />
             </View>
             <View style={LoginStyleSheet.margin}>
                 <TextInput
                     style={LoginStyleSheet.textBox}
                     placeholder='Email'
+                    onChangeText={(val) => setEmail(val)}
                 />
             </View>
             <View style={LoginStyleSheet.margin}>
                 <TextInput
                     style={LoginStyleSheet.textBox}
                     placeholder='Username'
+                    onChangeText={(val) => setUsername(val)}
                 />
             </View>
             <View style={LoginStyleSheet.passwordMargin}>
@@ -55,6 +71,7 @@ export default function SignUpPage({ navigation }) {
                     placeholder='Password'
                     style={LoginStyleSheet.textBox}
                     secureTextEntry={true}
+                    onChangeText={(val) => setPassword(val)}
                 />
             </View>
             <View style={LoginStyleSheet.margin}>
